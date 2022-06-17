@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 
 function DogInfo({ dog, updateGoodDog }) {
   const [isGoodUpdate, setIsGoodUpdate] = useState(dog.isGoodDog)
+  console.log(isGoodUpdate)
 
   const handleClick = () => {
     setIsGoodUpdate(!isGoodUpdate)
-    console.log(isGoodUpdate)
     fetch(`http://localhost:3001/pups/${dog.id}`, {
       method: "PATCH",
       headers: {
@@ -16,7 +16,7 @@ function DogInfo({ dog, updateGoodDog }) {
       })
     })
       .then(r => r.json())
-      .then(updatedDog => console.log(updatedDog))
+      .then(updatedDog => updateGoodDog(updatedDog))
   }
 
   return (
