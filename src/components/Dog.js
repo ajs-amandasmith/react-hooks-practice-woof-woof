@@ -1,8 +1,9 @@
 import React from 'react';
 
-function Dog({ dog }) {
+function Dog({ dog, handleClick }) {
+
   return (
-    <span>
+    <span onClick={(e) => handleClick(dog)}>
       {dog.name}
     </span>
   )
